@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: >-
+  Book details of a visit, using Amazon Lex to perform natural language
+  understanding
+Resources:
+  testfunction:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: .
+      Description: >-
+        Book details of a visit, using Amazon Lex to perform natural language
+        understanding
+      MemorySize: 128
+      Timeout: 10
+      Role: 'arn:aws:iam::507590675286:role/service-role/testfunction-role-9osfj88c'
+      Tags:
+        'lambda-console:blueprint': lex-book-trip-python
+      RuntimePolicy:
+        UpdateRuntimeOn: Auto
